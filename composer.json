@@ -1,0 +1,21 @@
+{
+    "name": "secret/secretshop",
+    "description": "Proyecto Final",
+    "type": "project",
+    "license": "propietary",
+    "authors": [
+        {
+            "name": "Jordy Huaman",
+            "email": "jordyhuamanluis16@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Libs\\": "libs/",
+            "App\\Controllers\\": "app/controllers/"
+        }
+    },
+    "require": {
+        "league/plates": "^3.4"
+    }
+}
