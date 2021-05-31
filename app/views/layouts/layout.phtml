@@ -4,49 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title><?= $this->e($title) ?> </title>
     <title>Restaurant</title>
 
     <!-- Normalize V8.0.1 -->
-    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="<?= URL . 'css/normalize.css' ?>">
 
     <!-- MDBootstrap V5 -->
-    <link rel="stylesheet" href="./css/mdb.min.css">
+    <link rel="stylesheet" href="<?= URL . 'css/mdb.min.css' ?>">
 
     <!-- Font Awesome V5.15.1 -->
-    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="<?= URL . 'css/all.css' ?>">
 
     <!-- Sweet Alert V10.13.0 -->
-    <script src="./js/sweetalert2.js"></script>
+    <script src="<?= URL . './js/sweetalert2.js' ?>"></script>
 
     <!-- General Styles -->
-    <link rel="stylesheet" href="./css/style.css">
-
+    <link rel="stylesheet" href="<?= URL . './css/style.css' ?>">
+    <?= $this->section('styles') ?>
 </head>
 
 <body>
-
     <?php require_once MAINPATH . 'app/views/layouts/partials/_header.phtml' ?>
-
     <main role="main">
         <?= $this->section('contents') ?>
     </main>
 
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_banner.phtml' ?>
 
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container1.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container-fluid.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container2.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_header.phtml' ?>
+    <?php require_once MAINPATH . 'app/views/layouts/partials/_footer.phtml' ?>
 
 
     <!-- MDBootstrap V5 -->
-    <script src="./js/mdb.min.js"></script>
+    <script src="<?= URL . 'js/mdb.min.js' ?>"></script>
 
     <!-- General scripts -->
-    <script src="./js/main.js"></script>
+    <script src="<?= URL . 'js/main.js' ?>"></script>
+    <?= $this->section('scripts') ?>
 </body>
 
 </html>

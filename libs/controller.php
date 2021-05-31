@@ -12,3 +12,4 @@ class Controller
         $this->templates->setFileExtension("phtml");
     }
 }
+

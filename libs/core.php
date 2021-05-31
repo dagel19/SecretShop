@@ -16,8 +16,7 @@ class Core
         //separamos y convertimos a array
         $url = explode('/', $url);
 
-        // var_dump($url);
-        //echo "<pre>", print_r($url), "</pre>";
+        myEcho($url);
 
         if (empty($url[0])) {
             //llamamos al controlador por defecto(Home)
