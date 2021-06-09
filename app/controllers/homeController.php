@@ -13,6 +13,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        echo $this->templates->render('index');
+        echo $this->template->render('index');
     }
 }
+
+//https://github.com/vlucas/phpdotenv
