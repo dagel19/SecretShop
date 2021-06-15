@@ -1,24 +1,17 @@
-<?php $this->layout('../layouts/layout', ['title' => 'secretshop']) ?>
+<?php $this->layout('../layouts/layout', ['title' => 'SECRETSHOP']) ?>
 
 <?php $this->push('styles'); ?>
 <!-- //link de css  -->
 <?php $this->end(); ?>
 <?php $this->push('contents'); ?>
+
 <div class="container">
-    <h1> SECRETOSHOP - Bienvenidos </h1>
-    <div class="container">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error sit cumque ullam? Voluptates nihil similique voluptatem hic qui. Exercitationem sint maiores totam commodi nesciunt aspernatur rem deleniti officia reprehenderit laudantium.
-    </div>
+    <?php echo env('DB_DATABASE') ?>
+    <h1> JHLVENTAS - Bienvenidos </h1>
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum nihil iste quaerat, qui expedita minima maxime dolore corrupti rem? Fuga ab earum eius illum atque rerum tenetur quidem fugit tempore.
+    </p>
 
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_banner.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container1.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container-fluid.phtml' ?>
-
-    <?php require_once MAINPATH . 'app/views/layouts/partials/_container2.phtml' ?>
 </div>
-
 <?php $this->end(); ?>
 <?php $this->push('scripts'); ?>
 <!-- //link js  -->

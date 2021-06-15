@@ -1,14 +1,14 @@
 <?php
 
-namespace libs;
+namespace Libs;
 
-class Connecion
+class Connection
 {
     private $host;
     private $user;
     private $pass;
     private $db;
-    private $dbo = null;
+    private $pdo = null;
 
     private static $_instance = null;
 
@@ -24,7 +24,7 @@ class Connecion
     public static function getInstance()
     {
         if (self::$_instance == null) {
-            self::$_instance = new Connecion();
+            self::$_instance = new Connection();
         }
         return self::$_instance;
     }
@@ -37,7 +37,7 @@ class Connecion
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                 \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
             );
-            $dsn = 'mysql:host=' . $this->host . ',dbname=' . $this->db;
+            $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db;
 
             $this->pdo = new \PDO(
                 $dsn,
