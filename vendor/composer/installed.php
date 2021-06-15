@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => '0182995461c669ef4021f2faf46205c7de7d0376',
+    'reference' => NULL,
     'name' => 'secret/secretshop',
   ),
   'versions' => 
@@ -427,12 +427,12 @@
     ),
     'secret/secretshop' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0182995461c669ef4021f2faf46205c7de7d0376',
+      'reference' => NULL,
     ),
     'symfony/console' => 
     array (
@@ -584,6 +584,15 @@
       array (
       ),
       'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
+    ),
+    'wixel/gump' => 
+    array (
+      'pretty_version' => 'v1.12.1',
+      'version' => '1.12.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e8416a3942f8e868c930e3577e12ba23ef02e8fe',
     ),
   ),
 );

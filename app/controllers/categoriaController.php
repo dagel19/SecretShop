@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use GUMP;
 use App\DAO\CategoriaDAO;
 use Libs\Controller;
 use stdClass;
@@ -27,6 +28,12 @@ class categoriaController extends Controller
     }
     public function save()
     {
+        $valid_data = $this->valida($_POST);
+
+        $status = $valid_data['status'];
+        $data = $valid_data['data'];
+
+        if ($status == true) {
         $obj = new stdClass();
 
         $obj->IdCategoria = isset($_POST['idcategoria']) ? intval($_POST['idcategoria']) : 0;
@@ -44,12 +51,33 @@ class categoriaController extends Controller
         }
 
         if ($obj->IdCategoria > 0) {
-            $this->dao->update($obj);
+            $rpta = $this->dao->update($obj);
         } else {
-            $this->dao->create($obj);
+            $rpta = $this->dao->create($obj);
         }
-        header('Location:' . URL . 'categoria/index');
-    }
+            if ($rpta) {
+                $response = [
+                    'success' => 1,
+                    'message' => 'Categoria guardada correctamente',
+                    'redirection' => URL . 'categoria/index'
+                ];
+            } else {
+                $response = [
+                    'success' => 0,
+                    'message' => 'Error',
+                    'redirection' => ''
+                ];
+            }
+        } else {
+            $response = [
+                'success' => -1,
+                'message' =>  $data,
+                'redirection' => ''
+            ];
+        }
+
+        echo json_encode($response);
+}
     public function delete($param = null)
     {
         $id = isset($param[0]) ? $param[0] : 0;
@@ -59,4 +87,29 @@ class categoriaController extends Controller
         }
         header('Location:' . URL . 'categoria/index');
     }
+
+    public function valida($datos)
+    {
+        $gump = new GUMP('es');
+
+        $gump->validation_rules([
+            'nombre' => 'required|max_len,20',
+            'descripcion' => 'min_len,1|max_len,50'
+        ]);
+        $valid_data = $gump->run($datos);
+
+        if ($gump->errors()) {
+            $response = [
+                'status' => false,
+                'data' => $gump->get_errors_array()
+            ];
+        } else {
+            $response = [
+                'status' => true,
+                'data' => $valid_data
+            ];
+        }
+        return $response;
+    }
 }
+

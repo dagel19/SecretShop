@@ -1,0 +1,69 @@
+<?php $this->layout('../layouts/layout', ['title' => 'SecretShop|CLIENTE']) ?>
+
+<?php $this->push('styles'); ?>
+<!-- //link de css  -->
+<?php $this->end(); ?>
+<?php $this->push('contents'); ?>
+
+<div class="container">
+    <h1>Bienvenidos</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <a is-modal="true" href="<?= URL . 'cliente/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">ID</th>
+                        <th style="width: 10%;">NOMBRES</th>
+                        <th style="width: 10%;">APELLIDOS</th>
+                        <th style="width: 10%;">DIRECCION</th>
+                        <th style="width: 10%;">TELEFONO</th>
+                        <th style="width: 20%;">CREDITO LIMITE</th>
+                        <th style="width: 10%;">RUC</th>
+                        <th style="width: 10%;">Estado</th>
+                        <th style="width: 10%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data as $row) : ?>
+                        <tr>
+                            <td><?= $row->IdCliente ?></td>
+                            <td><?= $row->Nombres ?></td>
+                            <td><?= $row->Apellidos ?></td>
+                            <td><?= $row->Direccion ?></td>
+                            <td><?= $row->Telf ?></td>
+                            <td><?= $row->CreditoLimite ?></td>
+                            <td><?= $row->Ruc ?></td>
+                            <td><?= $row->Estado ?></td>
+                            <a href=""></a>
+                            <td>
+                                <a is-modal="true" href="<?= URL . "cliente/detail/{$row->IdCliente}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fa fa-pen"></i></a>
+
+                                <a href="<?= URL . "cliente/delete/{$row->IdCliente}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<?php $this->stop(); ?>
+<?php $this->start('myModal') ?>
+<?php
+$title = 'Cliente Detalle - Insertar ';
+$size = GRANDE;
+include MAINPATH . 'app/views/layouts/partials/_modalGenerico.phtml';
+?>
+<?php $this->stop() ?>
+
+<?php $this->push('scripts') ?>
+<script src="<?= URL . 'js/scripts/modal_crud.js' ?>"></script>
+
+<?php $this->end() ?>>
