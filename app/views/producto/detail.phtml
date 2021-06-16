@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>Productos - Detalle</h1>
+            <form id="myForm" action="<?= URL . 'producto/detail' ?>" method="post">
+
+
+                <input type="text" name="idproducto" value="<?= $data->IdProducto ?>">
+
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="categoria">Categoria</label>
+
+                            <select action="" name="categoria" id="inputIDcategoria" class="form-control">
+                                <?php foreach ($po as $row) : ?>
+
+                                    <option value="">
+                                        <?= $row->IdCategoria ?>
+                                    </option>;
+                                <?php endforeach; ?>
+
+                            </select>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="marca">Marca</label>
+
+                            <select action="" name="marca" id="inputIDmarca" class="form-control">
+                                <?php foreach ($po as $row) : ?>
+
+                                    <option value="">
+                                        <?= $row->IdMarca ?>
+                                    </option>;
+                                <?php endforeach; ?>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="unidad">Unidad</label>
+
+                            <select action="" name="unidad" id="inputIDmarca" class="form-control">
+                                <?php foreach ($po as $row) : ?>
+
+                                    <option value="">
+                                        <?= $row->IdUnidad ?>
+                                    </option>;
+                                <?php endforeach; ?>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="categoria">Nombre</label>
+
+                            <input type="text" name="nombre" id="idnombre" class="form-control" value="<?= $data->Nombre ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="iddescripcion">Descripcion</label>
+                            <input type="text" name="descripcion" id="iddescripcion" class="form-control" value="<?= $data->Descripcion ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+
+                            <label for="preciocosto">Precio de costo</label>
+
+                            <input type="text" name="preciocosto" id="idpreciocosto" class="form-control" value="<?= $data->PrecioCosto ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+
+                            <label for="precioventa">precio de venta</label>
+
+                            <input type="text" name="precioventa" id="idprecioventa" class="form-control" value="<?= $data->PrecioVenta ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+
+                            <label for="stock">stock</label>
+
+                            <input type="text" name="stock" id="idstock" class="form-control" value="<?= $data->Stock ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+
+                            <label for="stockminimo">stock minimo</label>
+
+                            <input type="text" name="stockminimo" id="idstockminimo" class="form-control" value="<?= $data->StockMinimo ?>">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="idestado">Estado</label>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-8">
+
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+</div>

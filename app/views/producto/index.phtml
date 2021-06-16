@@ -1,0 +1,77 @@
+<?php $this->layout('../layouts/layout', ['title' => 'jhlventasmvc|PRODUCTO']) ?>
+
+<?php $this->push('styles'); ?>
+<!-- //link de css  -->
+<?php $this->end(); ?>
+<?php $this->push('contents'); ?>
+
+<div class="container">
+    <h1>Productos</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <a is-modal="true" href="<?= URL . "producto/detail/" ?>" class="btn btn-primary btn-block">Nuevo</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:10%">Categoria</th>
+                        <th style="width:10%">Unidad</th>
+                        <th style="width:10%">Marca</th>
+                        <th style="width:10%">Nombres</th>
+                        <th style="width:15%">Descripcion</th>
+                        <th style="width:10%">PrecioCosto</th>
+                        <th style="width:10%">PrecioVenta</th>
+                        <th style="width:5%">Stock</th>
+                        <th style="width:5%">StockMin</th>
+                        <th style="width:5%">Estado</th>
+                        <th style="width:50%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data as $row) : ?>
+                        <tr>
+                            <td><?= $row->IdProducto ?></td>
+                            <td><?= $row->IdCategoria ?></td>
+                            <td><?= $row->IdUnidad ?></td>
+                            <td><?= $row->IdMarca ?></td>
+                            <td><?= $row->Nombre ?></td>
+                            <td><?= $row->Descripcion ?></td>
+                            <td><?= $row->PrecioCosto ?></td>
+                            <td><?= $row->PrecioVenta ?></td>
+                            <td><?= $row->Stock ?></td>
+                            <td><?= $row->StockMinimo ?></td>
+                            <td><?= $row->Estado ?></td>
+                            <td>
+                                <a is-modal="true" href="<?= URL . "producto/detail/{$row->IdProducto}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fa fa-pen"></i></a>
+
+                                <a href="<?= URL . "producto/delete/{$row->IdProducto}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+<?php $this->stop() ?>
+
+<?php $this->start('myModal') ?>
+<?php
+$title = 'Producto Detalle - Insertar ';
+$size = GRANDE;
+include MAINPATH . 'app/views/layouts/partials/_modalGenerico.phtml';
+?>
+<?php $this->stop() ?>
+
+<?php $this->push('scripts') ?>
+
+<script src="<?= URL . 'js/scripts/modal_crud.js' ?>"></script>
+
+<?php $this->end() ?>
