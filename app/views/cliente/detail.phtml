@@ -3,76 +3,80 @@
         <div class="col-sm-12">
             <h1>CLIENTE - Detalle</h1>
             <form id="myForm" action="<?= URL . 'cliente/save' ?>" method="post">
-                <input type="hidden" name="idcliente" value="<?= $data->IdCliente ?>">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="id_nombres">Nombres</label>
-                                <input type="text" name="nombres" id="id_nombres" class="form-control" value="<?= $data->Nombres ?>">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
 
-                                <label for="apellidos">Apellidos</label>
 
-                                <input type="text" name="apellidos" id="idapellidos" class="form-control" value="<?= $data->Apellidos ?>">
+                <input type="text" name="idcliente" value="<?= $data->IdCliente ?>">
 
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
 
-                                <label for="direccion">Direccion</label>
-
-                                <input type="text" name="direccion" id="iddireccion" class="form-control" value="<?= $data->Direccion ?>">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-
-                                <label for="telf">Telefono</label>
-
-                                <input type="text" name="telf" id="idtelf" class="form-control" value="<?= $data->Telf ?>">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-
-                                <label for="creditolimite">Credito Limite</label>
-
-                                <input type="text" name="creditolimite" id="idcreditolimite" class="form-control" value="<?= $data->CreditoLimite ?>">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-
-                                <label for="ruc">Ruc</label>
-
-                                <input type="text" name="ruc" id="idruc" class="form-control" value="<?= $data->Ruc ?>">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-
-                                <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="exampleCheck1">Estado</label>
-                            </div>
-                            <br>
-                            <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="nombres">Nombres</label>
+                            <input type="text" name="nombres" id="id_nombres" class="form-control" value="<?= $data->Nombres ?>">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Guardar</button>
-                            </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="apellidos">Apellidos</label>
+
+                            <input type="text" name="apellidos" id="idapellidos" class="form-control" value="<?= $data->Apellidos ?>">
+
                         </div>
                     </div>
-                </form>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="direccion">Direccion</label>
+
+                            <input type="text" name="direccion" id="iddireccion" class="form-control" value="<?= $data->Direccion ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="telf">Telefono</label>
+
+                            <input type="text" name="telf" id="idtelf" class="form-control" value="<?= $data->Telf ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="creditolimite">Credito Limite</label>
+
+                            <input type="text" name="creditolimite" id="idcreditolimite" class="form-control" value="<?= $data->CreditoLimite ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <label for="ruc">Ruc</label>
+
+                            <input type="text" name="ruc" id="idruc" class="form-control" value="<?= $data->Ruc ?>">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="exampleCheck1">Estado</label>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

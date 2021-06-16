@@ -2,13 +2,13 @@
 
 namespace App\Daos;
 
-use App\Models\CategoriaModel;
+use App\Models\FormaPagoModel;
 use GrahamCampbell\ResultType\Result;
 
 use Libs\Dao;
 use stdClass;
 
-class CategoriaDAO extends Dao
+class FormaPagoDAO extends Dao
 {
     public function __construct()
     {
@@ -16,19 +16,18 @@ class CategoriaDAO extends Dao
     }
     public function getAll(bool $Estado)
     {
-        $result = CategoriaModel::where('Estado', $Estado)->orderBy('IdCategoria', 'DESC')->get();
+        $result = FormaPagoModel::where('Estado', $Estado)->orderBy('IdFormaPago', 'DESC')->get();
         return $result;
     }
     public function get(int $id)
     {
 
-        $model = CategoriaModel::find($id);
+        $model = FormaPagoModel::find($id);
 
         if (is_null($model)) {
             $model = new stdClass();
-            $model->IdCategoria = 0;
+            $model->IdFormaPago = 0;
             $model->Nombre = "";
-            $model->Descripcion = "";
             $model->Estado = 0;
         }
 
@@ -37,33 +36,26 @@ class CategoriaDAO extends Dao
 
     public function create($obj)
     {
-        $model = new CategoriaModel();
-        $model->IdCategoria = $obj->IdCategoria;
+        $model = new FormaPagoModel();
+
+        $model->IdFormaPago = $obj->IdFormaPago;
         $model->Nombre = $obj->Nombre;
-        $model->Descripcion = $obj->Descripcion;
         $model->Estado = $obj->Estado;
 
         return $model->save();
     }
     public function update($obj)
     {
-        $model = CategoriaModel::find($obj->IdCategoria);
+        $model = FormaPagoModel::find($obj->IdFormaPago);
         $model->Nombre = $obj->Nombre;
-        $model->Descripcion = $obj->Descripcion;
         $model->Estado = $obj->Estado;
 
         return $model->save();
+        
     }
     public function delete(int $id)
     {
-        $model = CategoriaModel::find($id);
+        $model = FormaPagoModel::find($id);
         return $model->delete();
     }
-    //public function baja(int $id)
-    //{
-    //    $sql = "UPDATE categorias set estado='false' WHERE idcategoria=?";
-    //    $stmt = $this->pdo->prepare($sql);
-    //   $stmt->bindParam(1, $id, \PDO::PARAM_INT);
-    //    return $stmt->execute();
-    //}
 }

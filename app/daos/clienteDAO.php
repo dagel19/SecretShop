@@ -43,6 +43,7 @@ class ClienteDAO extends Dao
     public function create($obj)
     {
         $model = new ClienteModel();
+        $model->IdCliente = $obj->IdCliente;
         $model->Nombres = $obj->Nombres;
         $model->Apellidos = $obj->Apellidos;
         $model->Direccion = $obj->Direccion;

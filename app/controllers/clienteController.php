@@ -96,7 +96,7 @@ class clienteController extends Controller
         $gump = new GUMP('es');
 
         $gump->validation_rules([
-            'ruc' => 'required|max_len,25'
+            //'nombre' => 'required|max_len,25'
         ]);
         $valid_data = $gump->run($datos);
 

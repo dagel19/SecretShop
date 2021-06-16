@@ -2,13 +2,13 @@
 
 namespace App\Daos;
 
-use App\Models\CategoriaModel;
+use App\Models\Usuarios_TipoModel;
 use GrahamCampbell\ResultType\Result;
 
 use Libs\Dao;
 use stdClass;
 
-class CategoriaDAO extends Dao
+class Usuarios_TipoDAO extends Dao
 {
     public function __construct()
     {
@@ -16,19 +16,18 @@ class CategoriaDAO extends Dao
     }
     public function getAll(bool $Estado)
     {
-        $result = CategoriaModel::where('Estado', $Estado)->orderBy('IdCategoria', 'DESC')->get();
+        $result = Usuarios_TipoModel::where('Estado', $Estado)->orderBy('IdTipo', 'DESC')->get();
         return $result;
     }
     public function get(int $id)
     {
 
-        $model = CategoriaModel::find($id);
+        $model = Usuarios_TipoModel::find($id);
 
         if (is_null($model)) {
             $model = new stdClass();
-            $model->IdCategoria = 0;
+            $model->IdTipo = 0;
             $model->Nombre = "";
-            $model->Descripcion = "";
             $model->Estado = 0;
         }
 
@@ -37,33 +36,23 @@ class CategoriaDAO extends Dao
 
     public function create($obj)
     {
-        $model = new CategoriaModel();
-        $model->IdCategoria = $obj->IdCategoria;
+        $model = new Usuarios_TipoModel();
         $model->Nombre = $obj->Nombre;
-        $model->Descripcion = $obj->Descripcion;
         $model->Estado = $obj->Estado;
 
         return $model->save();
     }
     public function update($obj)
     {
-        $model = CategoriaModel::find($obj->IdCategoria);
+        $model = Usuarios_TipoModel::find($obj->IdTipo);
         $model->Nombre = $obj->Nombre;
-        $model->Descripcion = $obj->Descripcion;
         $model->Estado = $obj->Estado;
 
         return $model->save();
     }
     public function delete(int $id)
     {
-        $model = CategoriaModel::find($id);
+        $model = Usuarios_TipoModel::find($id);
         return $model->delete();
     }
-    //public function baja(int $id)
-    //{
-    //    $sql = "UPDATE categorias set estado='false' WHERE idcategoria=?";
-    //    $stmt = $this->pdo->prepare($sql);
-    //   $stmt->bindParam(1, $id, \PDO::PARAM_INT);
-    //    return $stmt->execute();
-    //}
 }

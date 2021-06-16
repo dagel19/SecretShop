@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Marcas - Detalle</h1>
+            <form id="myForm" action="<?= URL . 'Marca/save' ?>" method="post">
+                <input type="hidden" name="idmarca" value="<?= $data->IdMarca ?>">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_nombre">Nombre</label>
+                            <input type="text" name="nombre" id="id_nombre" class="form-control" value="<?= $data->Nombre ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="id_descripcion">Descripción</label>
+                            <input type="text" name="descripcion" id="id_descripcion" class="form-control" value="<?= $data->Descripcion ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="exampleCheck1">Estado</label>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

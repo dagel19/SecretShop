@@ -6,12 +6,12 @@ use GUMP;
 use Libs\Controller;
 use stdClass;
 
-class categoriaController extends Controller
+class Usuarios_TipoController extends Controller
 {
     public function __construct()
     {
-        $this->loadDirectoryTemplate('categoria');
-        $this->loadDao('categoria');
+        $this->loadDirectoryTemplate('usuarios_tipo');
+        $this->loadDao('usuarios_tipo');
     }
     public function index()
     {
@@ -33,32 +33,31 @@ class categoriaController extends Controller
         $data = $valid_data['data'];
 
         if ($status == true) {
-        $obj = new stdClass();
+            $obj = new stdClass();
 
-        $obj->IdCategoria = isset($_POST['idcategoria']) ? intval($_POST['idcategoria']) : 0;
-        $obj->Nombre = isset($_POST['nombre']) ? $_POST['nombre'] : 0;
-        $obj->Descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : 0;
+            $obj->IdTipo = isset($_POST['idtipo']) ? intval($_POST['idtipo']) : 0;
+            $obj->Nombre = isset($_POST['nombre']) ? $_POST['nombre'] : 0;
 
-        if (isset($_POST['estado'])) {
-            if ($_POST['estado'] == 'on') {
-                $obj->Estado = true;
+            if (isset($_POST['estado'])) {
+                if ($_POST['estado'] == 'on') {
+                    $obj->Estado = true;
+                } else {
+                    $obj->Estado = false;
+                }
             } else {
                 $obj->Estado = false;
             }
-        } else {
-            $obj->Estado = false;
-        }
 
-        if ($obj->IdCategoria > 0) {
-            $rpta = $this->dao->update($obj);
-        } else {
-            $rpta = $this->dao->create($obj);
-        }
+            if ($obj->IdTipo > 0) {
+                $rpta = $this->dao->update($obj);
+            } else {
+                $rpta = $this->dao->create($obj);
+            }
             if ($rpta) {
                 $response = [
                     'success' => 1,
-                    'message' => 'Categoria guardada correctamente',
-                    'redirection' => URL . 'categoria/index'
+                    'message' => 'La unidad se guardado correctamente',
+                    'redirection' => URL . 'usuarios_tipo/index'
                 ];
             } else {
                 $response = [
@@ -76,7 +75,7 @@ class categoriaController extends Controller
         }
 
         echo json_encode($response);
-}
+    }
     public function delete($param = null)
     {
         $id = isset($param[0]) ? $param[0] : 0;
@@ -84,7 +83,7 @@ class categoriaController extends Controller
         if ($id > 0) {
             $this->dao->delete($id);
         }
-        header('Location:' . URL . 'categoria/index');
+        header('Location:' . URL . 'usuarios_tipo/index');
     }
 
     public function valida($datos)
@@ -92,8 +91,7 @@ class categoriaController extends Controller
         $gump = new GUMP('es');
 
         $gump->validation_rules([
-            'nombre' => 'required|max_len,20',
-            'descripcion' => 'min_len,1|max_len,50'
+            'nombre' => 'required|max_len,25'
         ]);
         $valid_data = $gump->run($datos);
 
@@ -111,4 +109,3 @@ class categoriaController extends Controller
         return $response;
     }
 }
-

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>Forma pagos - Detalle</h1>
+
+            <form id="myForm" action="<?= URL . 'formapago/save' ?>" method="post">
+                <input type="hidden" name="idformapago" value="<?= $data->IdFormaPago ?>" <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="idnombre">Nombre</label>
+                        <input type="text" name="nombre" id="id_nombre" class="form-control" value="<?= $data->Nombre ?>">
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="idestado">Estado</label>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<br>
+</div>
